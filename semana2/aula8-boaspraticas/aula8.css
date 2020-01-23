@@ -1,0 +1,120 @@
+
+header {
+background-color: orange;
+padding: 15px 10px;
+
+}
+
+header input[type=text]{
+  float: right;
+  padding: 6px;
+  border: none;
+  margin-top: -48px;
+  margin-right: 16px;
+  font-size: 14px;
+  
+}
+
+
+
+
+.video-container{
+  display: grid;
+  height: 400px;
+  align-content: center;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr ; 
+  grid-gap: 10px; 
+  background-color: white;
+  padding: 10px;
+
+
+}
+
+
+img{
+  width="100" 
+  height="100"
+}
+
+
+
+.video1{
+
+    padding: 70px 5px;
+	border: 1px solid black;
+	border: 1px solid black;
+	background-color: white;
+    text-align: center;	
+}
+
+.video2{
+
+    padding: 70px 5px;
+	border: 1px solid black;
+	border: 1px solid black;
+	background-color: white;
+    text-align: center;	
+}
+
+.video3{
+
+    padding: 70px 5px;
+	border: 1px solid black;
+	border: 1px solid black;
+	background-color: white;
+    text-align: center;	
+}
+.video4{
+
+    padding: 70px 5px;
+	border: 1px solid black;
+	border: 1px solid black;
+	background-color: white;
+    text-align: center;	
+}
+.video5{
+
+    padding: 70px 5px;
+	border: 1px solid black;
+	border: 1px solid black;
+	background-color: white;
+    text-align: center;	
+}
+.video6{
+
+    padding: 70px 5px;
+	border: 1px solid black;
+	border: 1px solid black;
+	background-color: white;
+    text-align: center;	
+}
+.video7{
+
+    padding: 70px 5px;
+	border: 1px solid black;
+	border: 1px solid black;
+	background-color: white;
+    text-align: center;	
+}
+.video8{
+
+    padding: 70px 5px;
+	border: 1px solid black;
+	border: 1px solid black;
+	background-color: white;
+    text-align: center;	
+}
+
+
+footer {
+   background-color: grey;
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   color: black;
+   text-align: center;
+
+}
+
