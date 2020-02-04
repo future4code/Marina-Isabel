@@ -1,0 +1,12 @@
+.container-semana{
+ display: grid;
+ grid-template-columns: auto auto auto auto auto auto auto;
+ 
+}
+
+.diadasemana{
+	border: 1px solid black;
+	padding: 50px;
+
+}
+
