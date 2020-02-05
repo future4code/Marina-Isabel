@@ -1,12 +1,25 @@
-.container-semana{
- display: grid;
- grid-template-columns: auto auto auto auto auto auto auto;
- 
+/* Cabeçalho */
+header{
+	height: 20vh;
+	text-align: center;
+	border-bottom: 1px solid black;
 }
 
-.diadasemana{
-	border: 1px solid black;
-	padding: 50px;
+
+
+/*Lista da Semana */
+main{
+	display: flex;
+	justify-content: space-evenly;
+	padding-top: 20px;
+}
+
+main > div{
+	height: 70vh;
+	border-right: 1px solid black;
+	padding: 0 5vw;
+	text-align: 
+	
 
 }
 
