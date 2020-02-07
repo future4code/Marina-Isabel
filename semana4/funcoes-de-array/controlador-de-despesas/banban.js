@@ -1,13 +1,17 @@
-class despesas{
+class despesas(){
 	construtor(valor, tipo, descricao){
 		this.valor = valor 
-		this.valor = tipo
+		this.tipo = tipo
 		this.descricao = descricao
 	}
 }
 
 function Cadastrar(){
-	const cadastroDespesa = document.getElementByClass("valor").value
-	const cadastroDespesa = document.getElementByClass("tipo").value
-	const cadastroDespesa = document.getElementByClass("descricao").value
+	const valor = document.getElementByClass("valor").value
+	const tipo = document.getElementByClass("tipo").value
+	const descricao = document.getElementByClass("descricao").value
+    
+    if(valor === "" || tipo === "" || descrição === ""){
+    	alert("Preencha o campo corretamente!")
+  
 }
