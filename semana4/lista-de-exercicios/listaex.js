@@ -127,4 +127,69 @@ console.log(numero2)
 
 
 
+//Exercícios de Lógica de Programação
 
+//1.
+
+/*const listaUm = [10, 18, 25, 40, 63, 71,86 ,99]
+
+       for(let i = 0, i = listaUm.length; i < 1; i++){
+       	console.log(listaUm[i])
+       }
+
+
+const listaUm = [10, 18, 25, 40, 63, 71,86 ,99]
+     
+     let par = 0
+     for(let numero of listaUm){
+     	if(numero === par){
+     		par = numero
+     	}
+     }
+
+  let listaUm = 0
+
+  while (listaUm < 100){
+  	console.log(listaUm)
+
+  	i++
+  }   
+  */
+
+//2.
+
+/*
+a. booleano1 && booleano2 && !booleano4
+//false
+
+b.(booleano1 && booleano2) || !booleano3
+//false
+c.  (booleano2 || booleano3) && (booleano4 || booleano1)
+//true
+d. !(booleano2 && booleano3) || !(booleano1 && booleano3)
+//true
+e.!(booleano1) && !(booleano3) || (!booleano4 && booleano3 && booleano3)
+//false
+*/
+
+//3.
+
+//O codigo não funciona pois o while não pode ser usado para selecionar somente alguns numeros, e sim para chegar até um obejtivo determinado por uma variavel.
+// Utilizei outro laço, o "for"  que consegue percorrer todos os numeros do array e selecionar determinados números, atraves de uma variavel que apresenta um  parametro.
+
+const paresSelecionados = (quantidadeDeNumerosPares) => {
+let i = 0
+for(let i = 0; i < quantidadeDeNumerosPares; i++ ){
+
+  console.log(i*2)
+}
+
+}
+
+paresSelecionados(8)
+
+// Imprime numeros pares  até o 14!
+
+//4.
+
+const 
