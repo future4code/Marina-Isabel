@@ -216,3 +216,5 @@ const numero2 = 30
   }*/
   
   // naõ consegui fazer a diferença entre eles.
+
+  //Exercícios de Funções
