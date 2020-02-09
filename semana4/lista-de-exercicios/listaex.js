@@ -215,6 +215,28 @@ const numero2 = 30
 	  console.log("o", numero2, "é divido pelo", numero1)
   }*/
   
-  // naõ consegui fazer a diferença entre eles.
+  // não consegui fazer a diferença entre eles.
 
   //Exercícios de Funções
+1. 
+
+  function arrayDeNumeros(){
+	  const array = [12, 24, 30, 40, 55]
+	  let segundoMaior = array [0]
+	  let segundoMenor =  array [0]
+
+	  
+  }
+
+  2.
+
+  function oiParaAFuture(){
+	  alert("Hello Future4")
+  }
+
+  oiParaAFuture()
+
+  //Exercicio de Objetos 
+
+  1. 
+  
