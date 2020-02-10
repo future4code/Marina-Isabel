@@ -239,4 +239,47 @@ const numero2 = 30
   //Exercicio de Objetos 
 
   1. 
-  
+  Array é uma estrutura que representa dados que são armazenados e e ou não relação entre si.
+  Objetos são estruturas mais complexas que permitem que que cada conteudo seja representado por um valor definido.Array
+
+  2.
+  function criaRetangulo(lado1, lado2) {
+	  let largura = lado1
+	  let altura = lado2
+	  let perimetro = 2 * (lado1 + lado2)
+	  let area = (lado1 * lado2)
+  }
+  return criaRetangulo
+
+  // não deu certo e eu não consigo resolver essa questão.
+
+  //3.
+
+function filmeFavorito(){
+	const meufilme = {
+		titulo: "Step Up"
+		Ano: 2006
+		Diretora: "Anne Fletcher"
+		Ator: "Channing Tatum"
+		Atriz: "Jenna Dewan" 
+	}
+	console.log("Venha assistir o filme", titulo, "de", ano, "dirigido por", diretora, "estrelado por", atriz, "e por", ator)
+}
+
+//4.
+function anonimizaPessoa(){
+	const anonimo = {
+		nome: "Miguel"
+		idade: 3
+		email:"luizmiguel@gmail.com"
+		endereço:"Rua Maria Francisca da Silva"
+	}
+
+	return anonimo
+}
+
+//Não consegui consertar o erro dos numeros na função
+
+
+
+
