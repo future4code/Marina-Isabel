@@ -281,5 +281,28 @@ function anonimizaPessoa(){
 //Não consegui consertar o erro dos numeros na função
 
 
+// Exercicios de Funções de Array
+
+1.
+const array = [
+	{ nome: "Pedro", idade: 20 },
+	{ nome: "João", idade: 10 },
+	{ nome: "Paula", idade: 12 },
+	{ nome: "Artur", idade: 89 }
+]
+
+function arrayAdultos (array){
+	const soAdultos = array.filter(adulto)=>{
+		return adulto.idade > 18
+	}
+}
+
+function arrayCriancas(array){
+	const soCriancas = array.filter(crianca) =>{
+		return crianca.idade < 18
+	}
+}
 
 
+
+2. 
