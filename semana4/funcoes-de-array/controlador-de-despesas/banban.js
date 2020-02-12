@@ -1,4 +1,4 @@
-class despesas{
+
 	construtor(valor, tipo, descricao){
 		this.valor = valor 
 		this.tipo = tipo
@@ -16,12 +16,3 @@ function Cadastrar(){
   
 }
 
-
-function filtrar(){
-
-	const tipo = document.getElementByClass("tipo").value
-	const  doMinimo = document.getElementByClass("Minimo").value
-	const doMaximo = document.getElementByClass("Maximo").value
-    
-    
-}
