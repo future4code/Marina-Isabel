@@ -1,0 +1,10 @@
+.PageSection-container{
+    display:flex;
+    flex-direction:column;
+    align-item: center;
+    flex: 1;
+}
+
+.PageSection-container > div{
+    margin-bottom: 10px;
+}
