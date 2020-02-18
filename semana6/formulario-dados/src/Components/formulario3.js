@@ -30,7 +30,7 @@ class TerceiroFormulario extends React.Component {
             <option value="Curso de Inglês">Curso de Inglês</option>       
           </select>
     
-        <button>Próxima Etapa</button>
+  
 
         </form>
       );

@@ -27,7 +27,7 @@ class SegundoFormulario extends React.Component {
           <p>6. Qual a unidade de ensino?</p>
           <input type="text" alt=""/>
         </div>
-        <button>Próxima Etapa</button>
+       
 
         </form>
       );

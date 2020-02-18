@@ -42,7 +42,7 @@ class PrimeiroFormulario extends React.Component {
             <option value="Ension médio incompleto">Ensino superior completo</option>         
           </select>
         </div>
-        <button>Próxima Etapa</button>
+    
 
         </form>
       );
