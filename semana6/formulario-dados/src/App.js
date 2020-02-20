@@ -18,7 +18,7 @@ class App extends React.Component{
     };
   }
 
-renderizaEtapa = () => {
+novaEtapa = () => {
   switch (this.state.etapa){
     case 1:
       return <PrimeiroFormulario/>;
@@ -43,8 +43,8 @@ render() {
 
   return (
     <div className="App">
-      {this.renderizaEtapa()}
-      {this.state.etapa !== 5 && (
+      {this.novaEtapa()}
+      {this.state.etapa < 4 && (
         <button onClick={this.proximaEtapa}>Próxima etapa</button>
       )}
       </div>
