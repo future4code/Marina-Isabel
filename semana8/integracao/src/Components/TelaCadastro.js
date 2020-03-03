@@ -1,14 +1,16 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-
+import axios from 'axios'
 
 const FormularioCadastro = styled.form`
     border: 1px solid black;
     border-radius: 40px;
     width: 25vw;
     height: 34vh;
-    margin: 20px;
+    margin: 50px;
     text-align:center;
+    
+    
 `
 
 const BotaoSalvar =styled.button`
@@ -22,15 +24,32 @@ const Cadastrando = styled.div`
      margin: 50px;
 `
 
+
+const baseUrl = "https://us-central1-future4-users.cloudfunctions.net/api";
+
+
+
+
 class TelaCadastro extends React.Component {
     constructor(props){
         super(props);
-        this.state ={
-
+        this.state = {
+            listaDeCadastrados:[],
         };
     }
 
-    render(){
+    componentDidMount(){
+        this.mostrarCadastro()
+    }
+
+    mostrarCadastro  = () => {
+        const listaDeCadastradosPromessa = axios.post(`${baseUrl}/users/createUser`, {
+        headers:{
+            auth: 'string',
+        }
+    })
+
+    render() {
         return (
             <FormularioCadastro>
                 <Cadastrando>
@@ -42,7 +61,8 @@ class TelaCadastro extends React.Component {
                 <BotaoSalvar>Salvar</BotaoSalvar>
             </FormularioCadastro>
         );
+        
     }
 }
-
+}   
 export default TelaCadastro;
