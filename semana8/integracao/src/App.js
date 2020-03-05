@@ -11,33 +11,40 @@ import TelaLista from './Components/TelaLista';
 class App extends React.Component {
     constructor(props){
       super(props);
-
       this.state ={
-        clicouLista: false,
+        telaAtual: 'cadastro' 
       }
     }
 
-    handleClicou = () => {
-      const mudouLista = !this.state.clicouLista;
-      this.setState({ clicouLista: mudouLista });
-    };
+    //Método responsável por mudar a Tela (quando ele estiver em cadastro ele manda pra lista e vice-versa)
+    lidaComMudancaDeTela = () => {
+      if (this.state.telaAtual === 'cadastro'){
+        this.setState({ telaAtual: 'lista'})
+      } else {
+        this.setState({ telaAtual: 'cadastro'})
+      }
+    }
+
+
 
 
     render(){
+      // Método responsável para mudar o estado do botão 
+      const textoDoBotao = this.state.telaAtual === 'cadastro' ? 'Ir para lista de cadastrados': 'Ir para o cadastro do usuário';
 
-      if(this.state.clicouLista){
-       return ( 
-       <TelaLista/>
-       )
-      } else {   
          return (
-          <div>
-            <button onClick={this.handleClicou}>Ir para página de lista</button>
-            <TelaCadastro/>
+         
+           <div>
+            <button onClick={this.lidaComMudancaDeTela}>{ textoDoBotao }</button>
+            { this.state.telaAtual === 'cadastro' ?
+            <TelaCadastro/> :
+            <TelaLista/>
+            }
           </div>
+ 
         );
       }
     }
-  }
+
 
 export default App;
