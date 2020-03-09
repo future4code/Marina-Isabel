@@ -1,4 +1,4 @@
-//Exercícios de interpretação de código
+/*//Exercícios de interpretação de código
 //1.
 
 function conversorDeMoeda(valorEmDolar){
@@ -177,7 +177,7 @@ e.!(booleano1) && !(booleano3) || (!booleano4 && booleano3 && booleano3)
 //O codigo não funciona pois o while não pode ser usado para selecionar somente alguns numeros, e sim para chegar até um obejtivo determinado por uma variavel.
 // Utilizei outro laço, o "for"  que consegue percorrer todos os numeros do array e selecionar determinados números, atraves de uma variavel que apresenta um  parametro.
 
-const paresSelecionados = (quantidadeDeNumerosPares) => {
+/*const paresSelecionados = (quantidadeDeNumerosPares) => {
 let i = 0
 for(let i = 0; i < quantidadeDeNumerosPares; i++ ){
 
@@ -187,9 +187,122 @@ for(let i = 0; i < quantidadeDeNumerosPares; i++ ){
 }
 
 paresSelecionados(8)
-
+*/
 // Imprime numeros pares  até o 14!
 
 //4.
 
-const 
+/*function ladoDosTriangulos (a, b, c){
+	if(a === b && a === c){
+		return "O triângulo é Equilátero"
+	} else if((a === b && a !==c) || (b === c && a !==b) || (a === c && c !==b)){
+		return "O triângulo é Isósceles"
+	}else {
+		return "O triangulo é Escaleno"
+	}
+}
+
+console.log(ladoDosTriangulos)*/
+
+//5.
+
+/*const numero1 = 15
+const numero2 = 30
+  if (numero1 < numero2){
+	  console.log("O numero", numero2, "é maior")
+  }
+  if (numero2 % 2 === 0){
+	  console.log("o", numero2, "é divido pelo", numero1)
+  }*/
+  
+  // não consegui fazer a diferença entre eles.
+
+  //Exercícios de Funções
+1. 
+
+  function arrayDeNumeros(){
+	  const array = [12, 24, 30, 40, 55]
+	  let segundoMaior = array [0]
+	  let segundoMenor =  array [0]
+
+	  
+  }
+
+  2.
+
+  function oiParaAFuture(){
+	  alert("Hello Future4")
+  }
+
+  oiParaAFuture()
+
+  //Exercicio de Objetos 
+
+  1. 
+  Array é uma estrutura que representa dados que são armazenados e e ou não relação entre si.
+  Objetos são estruturas mais complexas que permitem que que cada conteudo seja representado por um valor definido.Array
+
+  2.
+  function criaRetangulo(lado1, lado2) {
+	  let largura = lado1
+	  let altura = lado2
+	  let perimetro = 2 * (lado1 + lado2)
+	  let area = (lado1 * lado2)
+  }
+  return criaRetangulo
+
+  // não deu certo e eu não consigo resolver essa questão.
+
+  //3.
+
+function filmeFavorito(){
+	const meufilme = {
+		titulo: "Step Up"
+		Ano: 2006
+		Diretora: "Anne Fletcher"
+		Ator: "Channing Tatum"
+		Atriz: "Jenna Dewan" 
+	}
+	console.log("Venha assistir o filme", titulo, "de", ano, "dirigido por", diretora, "estrelado por", atriz, "e por", ator)
+}
+
+//4.
+function anonimizaPessoa(){
+	const anonimo = {
+		nome: "Miguel"
+		idade: 3
+		email:"luizmiguel@gmail.com"
+		endereço:"Rua Maria Francisca da Silva"
+	}
+
+	return anonimo
+}
+
+//Não consegui consertar o erro dos numeros na função
+
+
+// Exercicios de Funções de Array
+
+1.
+const array = [
+	{ nome: "Pedro", idade: 20 },
+	{ nome: "João", idade: 10 },
+	{ nome: "Paula", idade: 12 },
+	{ nome: "Artur", idade: 89 }
+]
+
+function arrayAdultos (array){
+	const soAdultos = array.filter(adulto)=>{
+		return adulto.idade > 18
+	}
+}
+
+function arrayCriancas(array){
+	const soCriancas = array.filter(crianca) =>{
+		return crianca.idade < 18
+	}
+}
+
+
+
+2. 

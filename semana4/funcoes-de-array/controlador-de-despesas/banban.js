@@ -1,4 +1,4 @@
-class despesas(){
+
 	construtor(valor, tipo, descricao){
 		this.valor = valor 
 		this.tipo = tipo
@@ -15,3 +15,4 @@ function Cadastrar(){
     	alert("Preencha o campo corretamente!")
   
 }
+
