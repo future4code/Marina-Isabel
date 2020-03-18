@@ -36,7 +36,7 @@ class FormularioTarefa extends React.Component {
 					<button>Completas</button>
 				</div>
 					<div>
-						<button>Remover tarefas completas</button>
+					<button>Remover tarefas completas</button>
 					</div>
 		    </div>
 		)	
