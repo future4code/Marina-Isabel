@@ -19,13 +19,26 @@ class FormularioTarefa extends React.Component {
 		return( 
 		<div>
 			<h1>4Task</h1>
-			<input type="" placeholder="O que tem que ser feito?"></input>
-			<p>Marcar Todas como completas</p>
-			<p>Marcar Todas como pendentes</p>
-			<button>Todas</button>
-			<button>Pendentes</button>
-			<button>Completas</button>
-		</div>
+				<form>
+					<input type="" placeholder="O que tem que ser feito?"></input>
+					<button>Adicionar</button>
+				</form>
+
+				<ul>
+					<li>Task 1</li>
+					<li>Task 2</li>
+				</ul>
+				<div>
+					<button>Marcar Todas como completas</button>
+					<p>Filtros: </p>				
+					<button>Todas</button>
+					<button>Pendentes</button>
+					<button>Completas</button>
+				</div>
+					<div>
+						<button>Remover tarefas completas</button>
+					</div>
+		    </div>
 		)	
 	}
 }
