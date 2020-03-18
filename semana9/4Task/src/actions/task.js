@@ -1,4 +1,4 @@
-import React from 'react'
+
 
 
 // Fazer alterações no estado Global
@@ -13,7 +13,7 @@ export const addTask = (text) => {
 	}
 }
 
-const toggleTask = (id) => {
+export const toggleTask = (id) => {
 		return {
 			type: "TOGGLE_TASK",
 			payload: {
