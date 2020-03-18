@@ -26,7 +26,7 @@ class FormularioTarefa extends React.Component {
 
 				<ul>
 					<li>Task 1</li>
-					<li>Task 2</li>
+					
 				</ul>
 				<div>
 					<button>Marcar Todas como completas</button>
