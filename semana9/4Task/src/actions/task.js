@@ -1,7 +1,10 @@
+import React from 'react'
+
+
 // Fazer alterações no estado Global
 
 //Ação de criar uma tarefa com a função actionCreator
-const addTask = (text) => {
+export const addTask = (text) => {
 		return {
 			type: "ADD_TASK",
 			payload: {

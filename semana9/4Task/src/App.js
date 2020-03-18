@@ -1,43 +1,35 @@
-import React from 'react'
+import React from 'react';
 import JssProvider from 'react-jss/lib/JssProvider'
 import { create } from 'jss'
 import { MuiThemeProvider, createGenerateClassName, jssPreset } from '@material-ui/core/styles'
 import { createMuiTheme } from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
+import ToolBar from './components/ToolBar';
+import TaskForm from './components/TaskForm';
+import TaskList from './components/TaskList';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import { rootReducer } from './reducers';
 
-const generateClassName = createGenerateClassName()
-const jss = create({
-	...jssPreset(),
-	// We define a custom insertion point that JSS will look for injecting the styles in the DOM.
-	insertionPoint: document.getElementById('jss-insertion-point'),
-})
 
-const theme = createMuiTheme()
+
+
+
+// Quando cria um Provider é preciso fazer uma store do redux
+//Após o reducer ser feito no todos.js é necessário
+//que coloque como parametro da função abaixo.
+const store = createStore(rootReducer)
 
 function App() {
 	return( 
+		<Provider store={store}>
 		<div>
 			<h1>4Task</h1>
-				<form>
-					<input type="" placeholder="O que tem que ser feito?"></input>
-					<button>Adicionar</button>
-				</form>
-
-				<ul>
-					<li>Task 1</li>
-					
-				</ul>
-				<div>
-					<button>Marcar Todas como completas</button>
-					<p>Filtros: </p>				
-					<button>Todas</button>
-					<button>Pendentes</button>
-					<button>Completas</button>
-				</div>
-					<div>
-					<button>Remover tarefas completas</button>
-					</div>
+			   <TaskForm/>
+				<TaskList/>
+				<ToolBar/>
 		    </div>
+			</Provider>
 		)	
 	}
 
