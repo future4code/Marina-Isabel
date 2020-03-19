@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { toggleTask } from '../actions/task'
+import { deleteTask } from '../actions/task'
 
 
 //É preciso mostrar a lista de tarefas aqui, para isso acontecer
@@ -10,9 +11,23 @@ class TaskList extends React.Component {
 		
 			return(
 			 <ul>
-				{this.props.taskList.map(task =>
-				<li key={task.id} onClick={() => this.props.toggleTask(task.id)}>
-				{task.text} - Completa: {String(task.complete)}</li>
+				{this.props.taskList.filter((task) =>{
+					const filter = this.props.filter
+					if(filter === 'pendentes'){
+					return task.complete === false
+					}
+					if(filter === 'completas'){
+					return task.complete === true
+					}
+					return true 	
+				}).map(task =>
+				<li key={task.id} onClick=
+				{() => this.props.toggleTask(task.id)}>
+				{task.text} 
+				{/* - Completa: */}
+				 {/* {String(task.complete)} */}
+				 <button onClick={() => this.props.deleteTask(task.id)}>Deletar</button>
+				 </li>
 				)}		
 			 </ul>
 		)
@@ -23,13 +38,15 @@ class TaskList extends React.Component {
 //Mapear o estado do redux para a props.
 const mapStateToProps = (state)  =>{
 	return {
-		taskList: state.todos.todosList
+		taskList: state.todos.todosList,
+		filter: state.todos.filter
 	}
 }
 
 const mapDispatchToProps = (dispatch) => {
 	return{
-		toggleTask: id => dispatch(toggleTask(id))
+		toggleTask: id => dispatch(toggleTask(id)),
+		deleteTask: id => dispatch(deleteTask(id))
 	}
 }
 

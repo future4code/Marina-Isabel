@@ -1,9 +1,4 @@
 import React from 'react';
-import JssProvider from 'react-jss/lib/JssProvider'
-import { create } from 'jss'
-import { MuiThemeProvider, createGenerateClassName, jssPreset } from '@material-ui/core/styles'
-import { createMuiTheme } from '@material-ui/core/styles'
-import CssBaseline from '@material-ui/core/CssBaseline'
 import ToolBar from './components/ToolBar';
 import TaskForm from './components/TaskForm';
 import TaskList from './components/TaskList';
