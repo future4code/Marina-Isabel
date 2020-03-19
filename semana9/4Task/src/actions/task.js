@@ -1,7 +1,10 @@
+
+
+
 // Fazer alterações no estado Global
 
 //Ação de criar uma tarefa com a função actionCreator
-const addTask = (text) => {
+export const addTask = (text) => {
 		return {
 			type: "ADD_TASK",
 			payload: {
@@ -10,7 +13,7 @@ const addTask = (text) => {
 	}
 }
 
-const toggleTask = (id) => {
+export const toggleTask = (id) => {
 		return {
 			type: "TOGGLE_TASK",
 			payload: {
@@ -21,7 +24,7 @@ const toggleTask = (id) => {
 
 //informação para deletar a tarefa e completar tarefa são apresentadas no id (para identificar)
 
-const deleteTask = (id) => {
+export const deleteTask = (id) => {
 		return {
 			type: "DELETE_TASK",
 			payload: {
@@ -30,7 +33,7 @@ const deleteTask = (id) => {
 	}
 }
 
-const completeAllTasks = () => {
+export const completeAllTasks = () => {
 	return {
 		type: "COMPLETE_ALL_TASKS",
 	
@@ -38,14 +41,14 @@ const completeAllTasks = () => {
 }
 
 
-const deleteAllComplete= () => {
+export const deleteAllComplete= () => {
 	return{
-		type: "DELETE_ALL_COMPLETE"
+		type: "DELETE_ALL_COMPLETE",
 	};
 
 }
 
-const setfilter = (filter) => {
+export const setfilter = (filter) => {
 		return {
 			type: "SET_FILTER",
 			payload: {
