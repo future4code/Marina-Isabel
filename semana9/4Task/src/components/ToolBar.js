@@ -1,21 +1,55 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import { completeAllTasks, deleteAllComplete, setfilter } from '../actions/task'
+import Button from '@material-ui/core/Button';
+import { createMuiTheme, MuiThemeProvider} from '@material-ui/core/styles'
+
+const meuTema = createMuiTheme ({
+	palette:{
+		primary: {
+			main: '#F5F5F5'
+		},
+		secondary: {
+			main:'#CD5C5C'
+		}
+	}
+})
 
 const ToolBar = (props) => {
 	return (
+		<MuiThemeProvider theme={meuTema}>	
 		<div>
 			<div>
-			<button onClick={props.completeAllTasks}>Marcar Todas como completas</button>
+			<Button
+			variant="contained"
+			color="primary"
+			size="small"
+			onClick={props.completeAllTasks}>Marcar Todas como completas</Button>
 			<h3>Filtros: </h3>				
-			<button onClick={() => props.setfilter('todas')}>Todas</button>
-			<button onClick={() => props.setfilter('pendentes')}>Pendentes</button>
-			<button onClick={() => props.setfilter('completas')}>Completas</button>
+			<Button 
+				variant="contained"
+				color="primary"
+				size="small"
+			onClick={() => props.setfilter('todas')}>Todas</Button>
+			<Button 
+				variant="contained"
+				color="primary"
+				size="small"
+			onClick={() => props.setfilter('pendentes')}>Pendentes</Button>
+			<Button 
+				variant="contained"
+				color="primary"
+				size="small"
+			onClick={() => props.setfilter('completas')}>Completas</Button>
 		</div>
-			<button onClick={props.deleteAllComplete}>Remover tarefas completas</button>
+			<Button 
+			variant="contained"
+			color="primary"
+			size="small"
+			onClick={props.deleteAllComplete}>Remover tarefas completas</Button>
 			
 		</div>
-				
+		</MuiThemeProvider>		
 	)
 }
 

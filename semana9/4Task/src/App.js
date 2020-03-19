@@ -5,7 +5,19 @@ import TaskList from './components/TaskList';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import { rootReducer } from './reducers';
+import styled from 'styled-components'
 
+
+const Home = styled.div`
+	 min-width: 40vw;
+     margin: 0 40vw;
+`
+
+const Title = styled.h1`
+	font-size: 6vw;
+	font-family:inherit;
+	color: #CD5C5C;
+`
 
 
 
@@ -17,14 +29,16 @@ const store = createStore(rootReducer)
 
 function App() {
 	return( 
-		<Provider store={store}>
-		<div>
-			<h1>4Task</h1>
-			   <TaskForm/>
-				<TaskList/>
-				<ToolBar/>
-		    </div>
-			</Provider>
+		
+			<Provider store={store}>
+			<Home>
+				<Title>4Task</Title>
+				<TaskForm/>
+					<TaskList/>
+					<ToolBar/>
+				</Home>
+				</Provider>
+		
 		)	
 	}
 

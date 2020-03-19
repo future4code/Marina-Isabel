@@ -1,6 +1,27 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { addTask } from '../actions/task'
+import Button from '@material-ui/core/Button';
+import { createMuiTheme, MuiThemeProvider, withStyles} from '@material-ui/core/styles'
+import styled from 'styled-components'
+
+
+const meuTema = createMuiTheme ({
+	palette:{
+		primary: {
+			main: '#F08080'
+		},
+		secondary: {
+			main:'#CD5C5C'
+		}
+	}
+})
+
+const Input = styled.input`
+	width: 20vw;
+	 border: none;
+     border-bottom: 2px solid grey;
+`
 
 class TaskForm extends React.Component {
 	constructor(props){
@@ -9,7 +30,7 @@ class TaskForm extends React.Component {
 			inputText: ''
 		}
 	}
-
+  
 	onChangeInput = (event) =>{
 		this.setState({inputText: event.target.value})
 	}
@@ -17,12 +38,19 @@ class TaskForm extends React.Component {
 		this.props.addTask(this.state.inputText)
 	}
 
+	
 	render() {
 			return (
+			<MuiThemeProvider theme={meuTema}>	
 			<form>
-				<input value={this.state.inputText} onChange={this.onChangeInput} placeholder="O que tem que ser feito?"></input>
-				<button type= "button" onClick={this.onClickAdicionar}>Adicionar</button>
+				<Input value={this.state.inputText} onChange={this.onChangeInput} placeholder="O que tem que ser feito?"></Input>
+				<Button 
+					variant="contained"
+					color="primary"
+					size="small"
+				type= "button" onClick={this.onClickAdicionar}>Adicionar</Button>
 			</form>
+			</MuiThemeProvider>
 		)
 	}
 }
