@@ -10,13 +10,20 @@ import thunk from 'redux-thunk'
 
 
 const Home = styled.div`
-	 min-width: 40vw;
-     margin: 0 40vw;
+    margin-left: 35%; /* metade da largura */
+    margin-top: 2%; /* metade da altura */
+    position: absolute;
+    width: 30%;  
+	background-color: #F5F5F5;
+	border: 2px solid #ccc;
+	border-radius: 70px;
+	padding: 30px;
 `
 
 const Title = styled.h1`
+	text-align:center;
 	font-size: 6vw;
-	font-family:inherit;
+	font-family:Arial;
 	color: #CD5C5C;
 `
 

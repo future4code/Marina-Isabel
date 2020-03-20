@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { completeAllTasks, deleteAllComplete, setfilter } from '../actions/task'
 import Button from '@material-ui/core/Button';
 import { createMuiTheme, MuiThemeProvider} from '@material-ui/core/styles'
+import styled from 'styled-components'
 
 const meuTema = createMuiTheme ({
 	palette:{
@@ -15,33 +16,55 @@ const meuTema = createMuiTheme ({
 	}
 })
 
+const Filtros = styled.h3`
+    text-align:center;
+	font-size: 2vw;
+	font-family:Arial;
+	color: #CD5C5C;
+`
+	
+const Botoes = styled.div`
+	display: flex;
+	justify-content: space-evenly;
+`
+
+
 const ToolBar = (props) => {
 	return (
 		<MuiThemeProvider theme={meuTema}>	
 		<div>
-			<div>
+
 			<Button
 			variant="contained"
 			color="primary"
 			size="small"
 			onClick={props.completeAllTasks}>Marcar Todas como completas</Button>
-			<h3>Filtros: </h3>				
+
+
+		
+			<Filtros>Filtros </Filtros>	
+			<hr/>		
+		<Botoes>
 			<Button 
 				variant="contained"
 				color="primary"
-				size="small"
+				size="mediun"
 			onClick={() => props.setfilter('todas')}>Todas</Button>
+
 			<Button 
 				variant="contained"
 				color="primary"
 				size="small"
 			onClick={() => props.setfilter('pendentes')}>Pendentes</Button>
+
 			<Button 
 				variant="contained"
 				color="primary"
 				size="small"
 			onClick={() => props.setfilter('completas')}>Completas</Button>
-		</div>
+		</Botoes>
+
+		<br/>
 			<Button 
 			variant="contained"
 			color="primary"

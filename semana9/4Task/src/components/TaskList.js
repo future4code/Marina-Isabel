@@ -1,14 +1,14 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { toggleTask } from '../actions/task'
-import { deleteTask } from '../actions/task'
+import { toggleTask, toggleTasks } from '../actions/task'
+import { deleteTask, deleteTasks } from '../actions/task'
 import Button from '@material-ui/core/Button';
 import { createMuiTheme, MuiThemeProvider} from '@material-ui/core/styles'
 
 const meuTema = createMuiTheme ({
 	palette:{
 		primary: {
-			main: '#F08080'
+			main: '#F5F5F5'
 		},
 		secondary: {
 			main:'#CD5C5C'
@@ -21,6 +21,7 @@ const meuTema = createMuiTheme ({
 //é necessário utilizar a connect, para conectar a lista com o reducer
 class TaskList extends React.Component {
 	render(){
+		console.log(this.props.taskList)
 			return(
 			<MuiThemeProvider theme={meuTema}>
 				<ul>
@@ -61,10 +62,12 @@ const mapStateToProps = (state)  =>{
 	}
 }
 
+
+
 const mapDispatchToProps = (dispatch) => {
 	return{
-		toggleTask: id => dispatch(toggleTask(id)),
-		deleteTask: id => dispatch(deleteTask(id))
+		toggleTask: id => dispatch(toggleTasks, toggleTask(id)),
+		deleteTask: id => dispatch(deleteTasks, deleteTask(id))
 	}
 }
 
