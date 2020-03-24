@@ -1,8 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-const AddTravel = props => {
-    console.log(props)
+
+class CreateTripPage extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        
+      };
+    }
+    render(){
     return(
         <div>
             <div>
@@ -13,5 +20,6 @@ const AddTravel = props => {
         </div>
     )
 }
+}
 
-export default connect (AddTravel)
+export default CreateTripPage

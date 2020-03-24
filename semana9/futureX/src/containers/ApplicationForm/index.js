@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-const FormPage = props => {
+const ApplicationForm = props => {
     console.log(props)
     return(
         <div>
@@ -18,4 +18,4 @@ const FormPage = props => {
     )
 }
 
-export default connect (FormPage)
+export default connect (ApplicationForm)
