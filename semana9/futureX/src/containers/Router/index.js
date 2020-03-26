@@ -12,9 +12,9 @@ import ListTripsPage from "../ListTripsPage";
 
 
 const routes = {
-  homepage: "/login",
+  homepage: "/",
   applicationform: "/applicationform",
-  login: "/",
+  login: "/login",
   tripscreate: "/tripscreate",
   tripslist: "/tripslist",
   tripsdetails: "/tripsdetails"
