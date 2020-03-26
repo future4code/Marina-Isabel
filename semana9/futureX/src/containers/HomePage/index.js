@@ -32,7 +32,7 @@ const ContainerHeader = styled.header`
 
 const Title = styled.h1`
     text-align:center;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: cursive;
     margin-top: -70px;
 
 `
