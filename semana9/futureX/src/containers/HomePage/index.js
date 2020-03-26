@@ -84,7 +84,11 @@ class HomePage extends React.Component {
     return(
         <MuiThemeProvider theme={meuTema}>
             <ContainerHeader>
-            <Button  variant="outline" size="large" color="primary">Minha Conta</Button>
+            <Button  
+            variant="outline" 
+            size="large" 
+            color="primary">
+            Minha Conta</Button>
                 {/* <img src={require('/img/futurex.png')} alt="imagem-do-logo" /> */}
                 <Logo src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F03b944d0-9121-4032-9d0d-be54d6f7cb84%2Ffuturex.png?table=block&id=abe15383-e5c0-4d54-a320-ea8ec68676d4&width=770&cache=v2"/>
              </ContainerHeader>  
@@ -96,9 +100,7 @@ class HomePage extends React.Component {
                 size="large"
                 color="primary">
                 Clique aqui para se candidatar a uma viagem</Button>
-                {this.state.telaAtual === 'login' ? 
-                <HomePage/> :
-                <LoginPage/>}
+               
 
                 <Image src="https://images.unsplash.com/photo-1517976384346-3136801d605d?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80"/>        
             </ContainerHome>

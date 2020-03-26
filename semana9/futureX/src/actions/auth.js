@@ -12,7 +12,8 @@ export const login = (email, password) => async (dispatch) =>{
 
     try {
         const response = await axios.post(`${baseUrl}/login`, loginData )
-        const token= response.data.token;
+        const token = response.data.token;
+        
             window.localStorage.setItem("token", token);
 
             dispatch(push("/tripscreate"))
