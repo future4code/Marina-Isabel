@@ -8,7 +8,7 @@ import { createBrowserHistory } from "history";
 import { createStore, applyMiddleware, compose } from "redux";
 import { generateReducers } from "../../reducers";
 import { routerMiddleware } from "connected-react-router";
-import HomePage from "../HomePage";
+
 
 export const history = createBrowserHistory();
 

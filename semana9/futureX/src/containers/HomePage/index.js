@@ -1,14 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import styled from 'styled-components';
-import { withStyles } from '@material-ui/core/styles';
+// import { withStyles } from '@material-ui/core/styles';
 import { Button } from '@material-ui/core';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles'
+import LoginPage from '../LoginPage';
 
 const meuTema = createMuiTheme({
     palette:{
         primary:{ 
-            main:"#ffb74d",
+            main:"#FFFF00",
 
         },
         secondary:{
@@ -17,33 +18,27 @@ const meuTema = createMuiTheme({
     },
 });
 
-const styles = theme => ({
-    margin: {
-      margin: theme.spacing.unit,
-    }
-  });
+
 
 
 const ContainerHeader = styled.header`
-    border: 1px solid #FFFACD;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
     width: 100%;
-    background-color: white;
+    background-color: #FF8C00;
 `
 
-const Title = styled.h1`
-    text-align:center;
-    font-family: cursive;
-    margin-top: -70px;
-
-`
 const ContainerHome = styled.div`
+    display:flex;
+    flex-direction:column;
     align-items:center;
     text-align:center;
-    border: 2px solid #FFFACD;
-    height:20%;
     width: 100%;
     padding:0 10%;
-    background-color: #FFFACD;
+    background-color: white;
+    font-family: Arial;
+   
 `
 const Logo = styled.img`
     max-width:200px;
@@ -54,40 +49,66 @@ const Logo = styled.img`
 const Image = styled.img`
     text-align:center;
     width:50%;
+    border-radius: 8%;
     
+`
+const Footer = styled.div`
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #FF8C00;
+   color: black;
+   font-family: Arial;
+   text-align: center;
 `
 
 class HomePage extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-        
+        telaAtual: "home"
       };
     }
+
+    lidaComMudancaDeTela = () => {
+        if (this.state.telaAtual === 'home'){
+            this.setState({ telaAtual: 'home'})
+
+        }else{
+            this.setState ({ telaAtual: 'login'})
+        }
+    }
+
     render(){
     return(
         <MuiThemeProvider theme={meuTema}>
-        <div>    
             <ContainerHeader>
+            <Button  variant="outline" size="large" color="primary">Minha Conta</Button>
                 {/* <img src={require('/img/futurex.png')} alt="imagem-do-logo" /> */}
                 <Logo src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F03b944d0-9121-4032-9d0d-be54d6f7cb84%2Ffuturex.png?table=block&id=abe15383-e5c0-4d54-a320-ea8ec68676d4&width=770&cache=v2"/>
-                <Title>Bem-vindo a sua plaforma de viagens espaciais</Title>
              </ContainerHeader>  
 
             <ContainerHome> 
-                <h3>Varios lugares incriveis esperando por você!</h3>   
-                <Image src="https://images.unsplash.com/photo-1517976384346-3136801d605d?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80"/>
-                <hr/>
-                <Button  variant="outline" size="large" color="primary"  >Clique aqui para se candidatar a uma viagem</Button>
+                <h2>Bem-vindo a plaforma de viagens espaciais FutureX</h2>  
+                <Button onClick={this.lidaComMudancaDeTela} 
+                variant="outline" 
+                size="large"
+                color="primary">
+                Clique aqui para se candidatar a uma viagem</Button>
+                {this.state.telaAtual === 'login' ? 
+                <HomePage/> :
+                <LoginPage/>}
+
+                <Image src="https://images.unsplash.com/photo-1517976384346-3136801d605d?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80"/>        
             </ContainerHome>
 
-            <footer>
-                <p> Viagens Espaciais Future4 - Sagan</p>
-            </footer>
-        </div>
+            <Footer>
+                <p> Viagens Espaciais FutureX - Sagan</p>
+            </Footer>
         </MuiThemeProvider>
     )
 }
 
 }
-export default withStyles(styles)(HomePage);
+export default HomePage;
