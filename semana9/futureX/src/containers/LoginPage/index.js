@@ -6,13 +6,13 @@ import styled from "styled-components";
 import { login } from "../../actions/auth";
 
 const LoginWrapper = styled.form`
-  width: 100%;
-  height: 100vh;
-  gap: 10px;
-  place-content: center;
+  width: 20%;
+  
   justify-items: center;
-  display: grid;
-  background-color: white;
+  display: flex ;
+  flex-direction: column;
+  background-color: orange;
+  border: 2px solid gray;
 
 `;
 
