@@ -12,6 +12,7 @@ const LoginWrapper = styled.form`
   place-content: center;
   justify-items: center;
   display: grid;
+  background-color: white;
 
 `;
 

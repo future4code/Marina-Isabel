@@ -11,7 +11,7 @@ import ListTripsPage from "../ListTripsPage";
 
 
 
-const routes = {
+export const routes = {
   homepage: "/",
   applicationform: "/applicationform",
   login: "/login",
