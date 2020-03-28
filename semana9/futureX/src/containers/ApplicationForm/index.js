@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import styled from 'styled-components'
 import { TextField } from '@material-ui/core'
 import { Button } from '@material-ui/core';
-
+import { applicationForm } from "../../actions/auth";
 
 
 
@@ -16,6 +16,7 @@ const FormStyle = styled.form`
     flex-flow: row wrap;
     background-color: orange;
     color:black;
+
     
 `
 const PageStyle = styled.div`
@@ -40,21 +41,34 @@ class ApplicationForm extends React.Component {
         }
     }
 
+    // componentDidMount(){
+    //     const token = window.localStorage.getItem("token")
+    //     if(token === null){
+    //     this.props.goToLogin();
+    //     }
+    // }
+
     handleChange = name => event => {
         this.setState({
           [name]: event.target.value,
         });
       };
 
+    handleApplicationForm = (event) => {
+        event.preventDefault();
+
+        const { name, age, applicationText, profession, country } = this.state;
+        this.props.applicationForm(name, age, applicationText, profession, country)
+    }; 
+
     render(){
 
-        
 
     return(
 
         <PageStyle>
             <h2>Formulário do Candidato</h2>
-            <FormStyle> 
+            <FormStyle onSubmit={this.handleApplicationForm}> 
                 <TextField 
                     id="filled-name"
                     label="Nome"
@@ -102,11 +116,16 @@ class ApplicationForm extends React.Component {
                     shrink: true,
                     }}
                  />
-                <Button>Salvar</Button>
+                <Button type="submit">Salvar</Button>
             </FormStyle>
             
         </PageStyle>
     )
   }
 }
-export default  (ApplicationForm);
+const mapDispatchToProps = (dispatch) => ({
+    applicationForm: (ame, age, applicationText, profession, country) =>
+    dispatch (applicationForm(ame, age, applicationText, profession, country))
+})
+
+export default connect(null, mapDispatchToProps)(ApplicationForm);

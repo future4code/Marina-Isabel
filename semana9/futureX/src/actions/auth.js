@@ -1,5 +1,6 @@
 import axios from 'axios';
-import {push} from 'connected-react-router';
+import { push } from 'connected-react-router';
+
 
 const baseUrl = "https://us-central1-missao-newton.cloudfunctions.net/futureX/marina";
 
@@ -22,3 +23,82 @@ export const login = (email, password) => async (dispatch) =>{
     }    
 }
 
+export const applicationForm = (name, age, applicationText, profession, country) => async (dispatch) => {
+
+    const applicationData ={
+        name,
+        age,
+        applicationText,
+        profession,
+        country
+    }
+
+    try {
+        const response = await axios.post(`${baseUrl}/apply`, applicationData )
+
+        const token = response.data.token;
+
+        window.localStorage.setItem("token", token);
+
+        dispatch(push("/tripslist"))
+    } catch (error) {
+        console.error ("erro", error)
+    }
+
+}
+
+export const createTrip  = (name, planet, date, description, durationInDays) => async (dispatch) => {
+
+    const createTripData ={
+        name,
+        planet,
+        date,
+        description,
+        durationInDays
+    }
+
+    try {
+        const response = await axios.post(`${baseUrl}/trips`, createTripData, {
+            headers: {
+                'auth':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkNmbjZPd0YyOVU5TDJSYzV0UWo1IiwiZW1haWwiOiJhc3Ryb2RldkBnbWFpbC5jb20uYnIiLCJpYXQiOjE1NzMxNDc5NDV9.cTNMopD35hMpOo34LhvFmmZJmUCrFUQdFECJnG7EvL4'
+            }
+        })
+
+        const token = response.data.token;
+
+        window.localStorage.setItem("token", token);
+
+        dispatch(push("/tripslist"))
+    } catch (error) {
+        console.error ("erro", error)
+    }
+
+}
+
+export const tripsdetails = (id, planet, durationInDays, date, name, description, candidates) => async (dispatch) => {
+
+    const tripsdetailsData ={
+        id,
+        planet,
+        durationInDays,
+        date,
+        name,
+        description,
+        candidates: [
+            id,
+        ]
+    }
+
+    try {
+        const response = await axios.get(`${baseUrl}/trip/NoIFVcOiSgTKTIPVZwXS`, tripsdetailsData )
+
+        const token = response.data.token;
+
+        window.localStorage.setItem("token", token);
+
+        dispatch(push("/"))
+    } catch (error) {
+        console.error ("erro", error)
+    }
+
+}

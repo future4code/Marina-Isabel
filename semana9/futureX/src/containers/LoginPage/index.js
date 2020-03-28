@@ -7,7 +7,6 @@ import { login } from "../../actions/auth";
 
 const LoginWrapper = styled.form`
   width: 20%;
-  
   justify-items: center;
   display: flex ;
   flex-direction: column;

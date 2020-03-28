@@ -13,7 +13,10 @@ class ListTripsPage extends React.Component {
 render(){
     return(
         <div>
-            <h1>Oi</h1>
+            <h2>Lista de Viagens</h2>
+            <ul>
+                <li></li>
+            </ul>
         </div>
     )
 }
