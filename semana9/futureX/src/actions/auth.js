@@ -60,7 +60,7 @@ export const createTrip  = (name, planet, date, description, durationInDays) => 
     try {
         const response = await axios.post(`${baseUrl}/trips`, createTripData, {
             headers: {
-                'auth':'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkNmbjZPd0YyOVU5TDJSYzV0UWo1IiwiZW1haWwiOiJhc3Ryb2RldkBnbWFpbC5jb20uYnIiLCJpYXQiOjE1NzMxNDc5NDV9.cTNMopD35hMpOo34LhvFmmZJmUCrFUQdFECJnG7EvL4'
+                'auth':'token'
             }
         })
 

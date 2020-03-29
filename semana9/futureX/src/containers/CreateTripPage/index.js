@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { TextField } from '@material-ui/core';
 import { Button } from '@material-ui/core';
-import { createTrip, tripsdetails } from "../../actions/auth";
+import { routes } from '../Router'
+import { push } from 'connected-react-router'
 
 
 
@@ -51,26 +52,13 @@ class CreateTripPage extends React.Component {
       };
 
 
-    handleCreateTrip = (event) => {
-        event.preventDefault();
-
-        const {name, planet, date, description, durationInDays} = this.state;
-        this.props.createTrip(name, planet, date, description, durationInDays)
-    }
-
-    handleTripDetail = (event) => {
-        event.preventDefault();
-
-        const {id, planet, durationInDays, date, name, description, candidates} = this.state;
-        this.props.tripsdetails(id, planet, durationInDays, date, name, description, candidates)
-    }
 
     render(){
     return(
         <div>
             <PageStyle>
                 <h2>Criando uma nova Viagem Espacial</h2>    
-                <FormStyle onSubmit={this.handleCreateTrip}>
+                <FormStyle>
                 <TextField 
                     id="filled-name"
                     label="Nome"
@@ -115,19 +103,19 @@ class CreateTripPage extends React.Component {
                     margin="normal"
                     variant="filled"
                  />
-                <Button type="submit">Criar Viagem</Button>
+                <Button onClick={this.goToListTripsPage}>Criar Viagem</Button>
                 </FormStyle>
-                <Button onClick={this.handleTripDetail}>Clique aqui para ver a lista de condidatos!</Button>
+                <Button >Clique aqui para ver a lista de condidatos!</Button>
             </PageStyle>
         </div>
     )
   }
 }
-const mapDispatchToProps = (dispatch) => ({
-    createTrip: (name, planet, date, description, durationInDays) =>
-    dispatch(createTrip(name, planet, date, description, durationInDays)),
-    tripsdetails: (id, planet, durationInDays, date, name, description, candidates) =>
-    dispatch(tripsdetails(id, planet, durationInDays, date, name, description, candidates)),
-})
+const mapDispatchToProps = (dispatch) => {
+    return{
+        goToListTripsPage:() => dispatch(push(routes.tripslist)),
+        
+    }
+}
 
 export default connect(null, mapDispatchToProps)(CreateTripPage)

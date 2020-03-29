@@ -22,4 +22,4 @@ class TripsDetailsPage extends React.Component {
     }
 }
 
-export default TripsDetailsPage;
+export default connect()(TripsDetailsPage);
