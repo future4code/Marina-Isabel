@@ -1,15 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { addTask } from '../actions/task'
+import { addTask, createTask } from '../actions/task'
 import Button from '@material-ui/core/Button';
-import { createMuiTheme, MuiThemeProvider, withStyles} from '@material-ui/core/styles'
+import { createMuiTheme, MuiThemeProvider} from '@material-ui/core/styles'
 import styled from 'styled-components'
 
 
 const meuTema = createMuiTheme ({
 	palette:{
 		primary: {
-			main: '#F08080'
+			main: '#F5F5F5'
 		},
 		secondary: {
 			main:'#CD5C5C'
@@ -18,9 +18,15 @@ const meuTema = createMuiTheme ({
 })
 
 const Input = styled.input`
-	width: 20vw;
-	 border: none;
-     border-bottom: 2px solid grey;
+	margin-top: -20%;
+	margin-left:5%;
+	width: 70%;
+	padding: 9px 15px;
+	border: 2px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	background-color: whitesmoke;
+
 `
 
 class TaskForm extends React.Component {
@@ -35,7 +41,8 @@ class TaskForm extends React.Component {
 		this.setState({inputText: event.target.value})
 	}
 	onClickAdicionar = () => {
-		this.props.addTask(this.state.inputText)
+		this.props.createTask(this.state.inputText)
+
 	}
 
 	
@@ -47,7 +54,7 @@ class TaskForm extends React.Component {
 				<Button 
 					variant="contained"
 					color="primary"
-					size="small"
+					size="LARGE"
 				type= "button" onClick={this.onClickAdicionar}>Adicionar</Button>
 			</form>
 			</MuiThemeProvider>
@@ -55,10 +62,7 @@ class TaskForm extends React.Component {
 	}
 }
 
-//alterações do estado para props
-const mapStateToProps = (state) =>{
-	return{}
-}
+
 
 //Fazer alterações no estado do redux 
 
@@ -70,14 +74,13 @@ const mapStateToProps = (state) =>{
 // 	}
 // }
 
-const mapDispatchToProps = dispatch => {
+
+
+const mapDispatchToProps = (dispatch) => {
 	return{
-		addTask: text => {
-			const action = addTask(text);
-			dispatch(action);
-		}
+		createTask: text => dispatch(createTask(text))
 	}
 }
 
-// Para interagir com o reduz é preciso connectar os componentes
-export default connect(mapStateToProps, mapDispatchToProps)(TaskForm);
+
+export default connect(null, mapDispatchToProps)(TaskForm);

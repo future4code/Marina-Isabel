@@ -3,7 +3,7 @@
 const initialState = {
 	todosList: [{
 		id: 1,
-		text: '',
+		text: 'First Task',
 		complete: false
 	}],
 	filter:'todas'
@@ -11,15 +11,11 @@ const initialState = {
 
 export const todos  = (state = initialState, action) => {
 	switch(action.type) {
-		case "ADD_TASK":
-			const newTodo = {
-				id: Date.now(),
-				text: action.payload.text,
-				complete: false
-			}
+		case "SET_TASK":
+			const taskList = action.payload.taskList
 			return {
 				...state,
-				todosList: [newTodo, ...state.todosList]
+				todosList: [...taskList, ...state.todosList]
 			}
 		case "TOGGLE_TASK":{
 			const newTodosList = state.todosList.map(todo =>{

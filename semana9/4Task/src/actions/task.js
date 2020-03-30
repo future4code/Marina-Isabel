@@ -1,14 +1,15 @@
-
+import axios from 'axios'
 
 
 // Fazer alterações no estado Global
 
-//Ação de criar uma tarefa com a função actionCreator
-export const addTask = (text) => {
+
+export const setTask = (taskList) => {
 		return {
-			type: "ADD_TASK",
+			type: "SET_TASK",
 			payload: {
-				text
+				taskList 
+				
 		}
 	}
 }
@@ -55,4 +56,52 @@ export const setfilter = (filter) => {
 				filter
 		}
 	}
+}
+
+export const getTask = () => async (dispatch, getState) => {
+	const result = await axios.get("https://us-central1-missao-newton.cloudfunctions.net/reduxTodo/marina/todos")
+	console.log(result.data)
+	dispatch(setTask(
+			result.data.todos 
+		)
+	)
+} 
+
+
+
+export const createTask = text => async (dispatch, getState) => {
+	try {
+	  await axios.post ("https://us-central1-missao-newton.cloudfunctions.net/reduxTodo/marina/todos", {text});
+
+	dispatch(getTask())
+
+	} catch (error){console.log(error)}
+
+}
+
+
+//Assistir aulas API, mudar o id
+
+export const deleteTasks = () => async (dispatch, getState) => {
+	const response = await axios.del("https://us-central1-missao-newton.cloudfunctions.net/reduxTodo/marina/todos/id");
+
+	dispatch(deleteTask(response.data.del.id))
+}
+
+
+// export const getTask = () => async (dispatch, getState) => {
+// 	const result = await axios.get("https://us-central1-missao-newton.cloudfunctions.net/reduxTodo/marina/todos")
+
+// 	dispatch(setfilter(
+// 			result.data.todos,
+// 			result.data.id,
+// 			result.data.done 
+// 		)
+// 	)
+// } 
+
+
+export const toggleTasks = id => async (dispatch, getState) =>{
+	const response = await axios.put("https://us-central1-missao-newton.cloudfunctions.net/reduxTodo/marina/todos/id/toggle")
+	dispatch(toggleTask(response.data.put.id))
 }
