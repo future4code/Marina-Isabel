@@ -58,11 +58,7 @@ export const createTrip  = (name, planet, date, description, durationInDays) => 
     }
 
     try {
-        const response = await axios.post(`${baseUrl}/trips`, createTripData, {
-            headers: {
-                'auth':'token'
-            }
-        })
+        const response = await axios.post(`${baseUrl}/trips`, createTripData, )
 
         const token = response.data.token;
 

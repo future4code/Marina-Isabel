@@ -57,8 +57,8 @@ class ApplicationForm extends React.Component {
     handleApplicationForm = (event) => {
         event.preventDefault();
 
-        const { name, age, applicationText, profession, country } = this.state;
-        this.props.applicationForm(name, age, applicationText, profession, country)
+        const { name, age, applicationText, profession, country, text } = this.state;
+        this.props.applicationForm(name, age, applicationText, profession, country, text)
     }; 
 
     render(){
@@ -124,8 +124,8 @@ class ApplicationForm extends React.Component {
   }
 }
 const mapDispatchToProps = (dispatch) => ({
-    applicationForm: (ame, age, applicationText, profession, country) =>
-    dispatch (applicationForm(ame, age, applicationText, profession, country))
+    applicationForm: (ame, age, applicationText, profession, country, text) =>
+    dispatch (applicationForm(ame, age, applicationText, profession, country, text))
 })
 
 export default connect(null, mapDispatchToProps)(ApplicationForm);
