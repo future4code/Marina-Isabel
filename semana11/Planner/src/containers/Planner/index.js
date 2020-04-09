@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 const PageWrapper = styled.div`
 `
-const TaskWrapper= styled.div`
+const TaskWrapper= styled.form`
   width: 90%;
   display:flex;
   justify-content:center;
