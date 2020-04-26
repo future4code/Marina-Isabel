@@ -1,27 +1,23 @@
-type client = {
+export type user = {
     name: string,
     cpf: number,
-    dateOfBirth: number
+    age: number
 }
 
-const data: client = {
+export const data: user = {
     name: "Maria",
     cpf: 12345678912,
-    dateOfBirth: 18,
+    age: 18,
 }
 
-type accountTransactions = {
-    name: string, 
-    cpf: number, 
-    recipient: string,
-    recipentCPF: number,
-    value: number
+export type accountTransactions = {
+    value: number, 
+    date: number, 
+    description: string
 }
 
-const transactions: accountTransactions = {
-    name: "Joana",
-    cpf: 12345678912, 
-    recipient: "José",
-    recipentCPF: 12345678912,
-    value: 1000
+export const transactions: accountTransactions = {
+    value: 0, 
+    date: 112200,
+    description: "Oi"
 }

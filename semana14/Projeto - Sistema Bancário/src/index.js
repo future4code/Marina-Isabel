@@ -1,12 +1,12 @@
-var data = {
+"use strict";
+exports.__esModule = true;
+exports.data = {
     name: "Maria",
     cpf: 12345678912,
-    dateOfBirth: 18
+    age: 18
 };
-var transactions = {
-    name: "Joana",
-    cpf: 12345678912,
-    recipient: "José",
-    recipentCPF: 12345678912,
-    value: 1000
+exports.transactions = {
+    value: 0,
+    date: 112200,
+    description: "Oi"
 };

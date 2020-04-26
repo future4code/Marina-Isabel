@@ -1,0 +1,21 @@
+{
+  "name": "src",
+  "version": "0.0.1",
+  "description": "projeto sistema bancario",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "projeto",
+    "sistema",
+    "bancario",
+    "marina",
+    "sagan"
+  ],
+  "author": "Marina",
+  "license": "ISC",
+  "dependencies": {
+    "moment": "^2.24.0"
+  }
+}
