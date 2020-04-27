@@ -1,12 +1,14 @@
+import { Transaction } from './Transaction'
+
 export class User {
     private name: string;
     private cpf: string;
     private age: number;
     private balance: number;
-    private transactions: number[];
+    private transactions: Transaction[];
 
 
-    constructor(name: string, cpf:string, age:number, balance:number, transactions: number ) {
+    constructor(name: string, cpf:string, age:number, balance:number, transactions: Transaction[] ) {
         this.name = name;
         this.cpf = cpf;
         this.age = age; 
@@ -15,16 +17,11 @@ export class User {
     }
 
     addBalance():void{
-        console.log(`Parabéns ${this.name} sua conta foi criada com sucesso!`)        
+        console.log('Saldo adicionado com sucesso!')        
     }
 
-    setAge(age: number){
-        if(age < 18) {
-            console.log("Idade não permitida para criar conta")
-        }else{
-            this.age = age
-        }
-        
+    getBalance(): number{
+     return this.balance
     }
 }
 
