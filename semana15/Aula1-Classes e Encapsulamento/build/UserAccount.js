@@ -8,16 +8,12 @@ class User {
         this.balance = balance;
         this.transactions = transactions;
     }
-    addBalance() {
-        console.log(`Parabéns ${this.name} sua conta foi criada com sucesso!`);
+    addBalance(sum = 10) {
+        console.log(`Saldo de ${sum}adicionado com sucesso!`);
+        return this.balance + sum;
     }
-    setAge(age) {
-        if (age < 18) {
-            console.log("Idade não permitida para criar conta");
-        }
-        else {
-            this.age = age;
-        }
+    getBalance() {
+        return this.balance;
     }
 }
 exports.User = User;

@@ -13,14 +13,15 @@ export class Bank {
 
     createAccount():void {
         console.log("Sua conta foi criada com sucesso!")
+        this.accounts
     }
 
     getAllAccounts(): User[]{
-        return 
+        return this.accounts
     }
 
     getAccountByCpf(): User[]{
-        return 
+        return this.accounts
     }
 
     saveAccounts(): void {

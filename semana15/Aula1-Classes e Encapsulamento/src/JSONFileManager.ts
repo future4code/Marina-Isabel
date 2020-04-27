@@ -1,5 +1,6 @@
 import * as fs from 'fs'
-
+import { writeFileSync, readFileSync } from 'fs'
+import { Bank } from './Bank'
 
 export class JSONFileManager {
 
@@ -8,11 +9,11 @@ export class JSONFileManager {
   constructor(fileName: string) {
     this.fileName = fileName
   }
-  writeObjectToFile(objectToSave: Object) {
-    fs.writeFileSync(this.fileName, JSON.stringify(objectToSave, null, 2))
+  writeInJSON(createAccountBank: Bank): void {
+    fs.writeFileSync(this.fileName, JSON.stringify(createAccountBank, null, 2))
   }
 
-  getObjectFromFIle(): Object {
+  getObjectFromJSON(): Bank { 
     return JSON.parse(fs.readFileSync(this.fileName).toString());
   }
 }

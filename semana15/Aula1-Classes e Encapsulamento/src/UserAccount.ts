@@ -13,11 +13,12 @@ export class User {
         this.cpf = cpf;
         this.age = age; 
         this.balance = balance;
-        this.transactions = [];
+        this.transactions = transactions;
     }
 
-    addBalance():void{
-        console.log('Saldo adicionado com sucesso!')        
+    addBalance(sum: number = 10): number{
+        console.log(`Saldo de ${sum}adicionado com sucesso!`)  
+        return this.balance + sum   
     }
 
     getBalance(): number{

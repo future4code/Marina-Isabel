@@ -1,11 +1,11 @@
 export class Transaction { 
-    private cpf: string;
+    private date: string;
     private value: number;
     private description: string;
 
 
-    constructor(cpf: string, value: number, description: string){
-        this.cpf = cpf;
+    constructor(date: string, value: number, description: string){
+        this.date = date;
         this.value = value;
         this.description = description;
     }

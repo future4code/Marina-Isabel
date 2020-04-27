@@ -5,10 +5,10 @@ class JSONFileManager {
     constructor(fileName) {
         this.fileName = fileName;
     }
-    writeObjectToFile(objectToSave) {
-        fs.writeFileSync(this.fileName, JSON.stringify(objectToSave, null, 2));
+    writeInJSON(createAccountBank) {
+        fs.writeFileSync(this.fileName, JSON.stringify(createAccountBank, null, 2));
     }
-    getObjectFromFIle() {
+    getObjectFromJSON() {
         return JSON.parse(fs.readFileSync(this.fileName).toString());
     }
 }
