@@ -3,7 +3,7 @@ export class User {
     private cpf: string;
     private age: number;
     private balance: number;
-    private transactions: number;
+    private transactions: number[];
 
 
     constructor(name: string, cpf:string, age:number, balance:number, transactions: number ) {
@@ -11,7 +11,7 @@ export class User {
         this.cpf = cpf;
         this.age = age; 
         this.balance = balance;
-        this.transactions = transactions;
+        this.transactions = [];
     }
 
     addBalance():void{
