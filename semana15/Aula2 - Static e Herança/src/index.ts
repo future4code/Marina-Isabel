@@ -41,8 +41,8 @@ console.log("Olá, sou "+customerData.introduceYourself(), "Bom dia!")
 // Exercício 8 
 // Precisei passar todos os parâmetros do pai da seller.
 // Consegui imprimir todos os parametros pois acho que a seller como filha, herdou os valores do pai Employee.
-// const sellerData: Seller = new Seller("valorId", "ValorEmail", "ValorNome", "ValorSenha", "ValorData", 3000)
-// console.log(sellerData)
+const sellerData: Seller = new Seller("valorId", "ValorEmail", "ValorNome", "ValorSenha", "ValorData", 3000)
+console.log(sellerData)
 
 // Exercício 9 
 // Ele imprime o valor 0 junto com os outros valores do pai.
