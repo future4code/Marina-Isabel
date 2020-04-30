@@ -1,18 +1,31 @@
 import * as fs from 'fs'
 
+export class FileManager {
+  constructor(private filePath: string) { }
 
-export class JSONFileManager {
-
-  fileName: string;
-
-  constructor(fileName: string) {
-    this.fileName = fileName
-  }
-  writeObjectToFile(objectToSave: Object) {
-    fs.writeFileSync(this.fileName, JSON.stringify(objectToSave, null, 2))
+  public setFilePath(path: string): void {
+    this.filePath = path;
   }
 
-  getObjectFromFIle(): Object {
-    return JSON.parse(fs.readFileSync(this.fileName).toString());
+  public writeFile(data: any): void {
+    fs.writeFileSync(this.filePath, JSON.stringify(data));
+  }
+
+  public readFile(): any {
+    const data = fs.readFileSync(this.filePath);
+    return JSON.parse(data.toString());
   }
 }
+
+const fm = new FileManager("arquivo");
+
+// imprime as infos do arquivo
+console.log(fm.readFile());
+
+fm.setFilePath("outro-arquivo");
+
+// escreve no arquivo
+fm.writeFile({
+  id: "1",
+  name: "Goli",
+});

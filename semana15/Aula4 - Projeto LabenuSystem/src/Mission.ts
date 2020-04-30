@@ -1,4 +1,6 @@
 import * as moment from 'moment'
+import { Teacher } from './Teacher';
+import { Student } from './Student';
 
 
 export abstract class Mission {
@@ -6,15 +8,16 @@ export abstract class Mission {
     private id: string;
     private initialDate: moment.Moment;
     private finishDate: moment.Moment;
-    private TeacherList: string;
-    private StudentsList: string;
+    private TeacherList: Teacher[]
+    private StudentsList: Student[] 
 
-    constructor(id: string, initialDate: moment.Moment, finishDate:moment.Moment, TeacherList: string, Students:string){
+    constructor(name: string, id: string, initialDate: moment.Moment, finishDate:moment.Moment, TeacherList: Teacher[], StudentsList: Student[]){
+        this.name = name
         this.id = id
         this.initialDate = initialDate
         this.finishDate = finishDate
         this.TeacherList = TeacherList
-        this.StudentsList = this.StudentsList
+        this.StudentsList = StudentsList
     }
 
     public getId(): string {
@@ -37,13 +40,15 @@ export abstract class Mission {
     //     return this.currentModule;
     //   }
     
-    //   public addTeacher(teacher: Teacher) {
-    //     this.teachers.push(teacher);
-    //   }
+      public addTeacher(teacher: Teacher) {
+        // console.log(`O professor ${this.name} foi adicionado com sucesso!`)
+        this.TeacherList.push(teacher);
+      }
     
-    //   public addStudent(student: Student) {
-    //     this.students.push(student);
-    //   }
+      public addStudent(student: Student) {
+        // console.log(`O aluno ${this.name} foi adicionado com sucesso!`)
+        this.StudentsList.push(student);
+      }
     
       public setName(name: string) {
         this.name = name;
