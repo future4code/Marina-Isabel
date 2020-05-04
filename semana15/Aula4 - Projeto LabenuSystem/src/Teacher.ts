@@ -1,4 +1,5 @@
 import { User } from "./User";
+import { MainTaskManager } from "./MainTaskManager";
 
 
 export enum TEACHER_SPECIALTY {
@@ -13,18 +14,19 @@ export enum TEACHER_SPECIALTY {
 
 
 
-export class Teacher implements User {
-  id: string;
-  name: string;
-  email: string;
-  specialties: TEACHER_SPECIALTY[] 
+export class Teacher extends MainTaskManager implements User {
+  constructor(
+    public name: string,
+    public email: string,
+    public curso:string,
+    public birthDate: moment.Moment,
+    public classroom: string,
+    public specialties: TEACHER_SPECIALTY[], 
+    public hobbies: string[]
+    ) {
 
-  constructor(id: string, name: string, email: string, specialties: TEACHER_SPECIALTY[]) {
-
-    this.id = id
-    this.name = name
-    this.email = email
-    this.specialties = specialties
+    super(name, email, curso, birthDate, classroom, specialties, hobbies);
+  
   }
 
 }

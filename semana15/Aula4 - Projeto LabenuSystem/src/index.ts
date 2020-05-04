@@ -4,13 +4,17 @@ import { Student } from "./Student";
 import { Teacher, TEACHER_SPECIALTY } from "./Teacher";
 import { FullTimeMission } from "./FullTimeMission";
 import { NightMission } from "./NightMission";
+import { MainTaskManager } from './MainTaskManager';
 
 
-export const newStudent: Student = new Student("ValorId", "Manoel", "manoel@live.com", moment("25/05/1994", "DD/MM/YYYY"), ["Jogar Bola"])
+export const newStudent: Student = new Student("ValorId", "Manoel", "manoel@live.com", moment("25/05/1994", "DD/MM/YYYY"), "class1", [TEACHER_SPECIALTY.BACKEND], ["Jogar Bola"]  )
 // console.log(newStudent)
-
-export const newStudent2: Student = new Student("ValorId", "Beatriz", "beatriz@live.com", moment("25/05/1994", "DD/MM/YYYY"), ["Dançar Tango"])
+newStudent.getAllStudents()
+export const newStudent2: Student = new Student("ValorId", "Beatriz", "beatriz@live.com", moment("25/05/1994", "DD/MM/YYYY"), "class1",[TEACHER_SPECIALTY.BACKEND], ["Dançar Tango"])
 // console.log(newStudent2)
+newStudent2.getAllStudents()
+
+console.log([newStudent, newStudent2])
 
 export const teacher1: Teacher = new Teacher("ValorId", "Paulinha", "paulinha@labenu.com", [TEACHER_SPECIALTY.CSS, TEACHER_SPECIALTY.REACT] )
 
