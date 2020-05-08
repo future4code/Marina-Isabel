@@ -28,21 +28,59 @@ const connection = knex({
 //     console.log("Tabela criada com sucesso")
 // }
 
-async function main(): Promise<void> {
-    await connection.raw(`
-    CREATE TABLE TodoListTask (
-		id VARCHAR(255) PRIMARY KEY, 
-        title VARCHAR(255) NOT NULL, 
-        description TEXT NOT NULL, 
-        status VARCHAR(255) NOT NULL DEFAULT "to_do",
-        limit_date DATE NOT NULL,
-        creator_user_id varchar(255) NOT NULL,
-        FOREIGN KEY (creator_user_id) REFERENCES TodoListUser(id)
-);
-    `);
-    console.log("Tabela criada com sucesso")
+// async function main(): Promise<void> {
+//     await connection.raw(`
+//     CREATE TABLE TodoListTask (
+// 		id VARCHAR(255) PRIMARY KEY, 
+//         title VARCHAR(255) NOT NULL, 
+//         description TEXT NOT NULL, 
+//         status VARCHAR(255) NOT NULL DEFAULT "to_do",
+//         limit_date DATE NOT NULL,
+//         creator_user_id varchar(255) NOT NULL,
+//         FOREIGN KEY (creator_user_id) REFERENCES TodoListUser(id)
+// );
+//     `);
+//     console.log("Tabela criada com sucesso")
+// }
+
+// async function main(): Promise<void> {
+//     await connection.raw(`
+//     CREATE TABLE TodoListResponsibleUserTaskRelation (
+// 		task_id VARCHAR(255),
+//     responsible_user_id VARCHAR(255),
+//     FOREIGN KEY (task_id) REFERENCES TodoListTask(id),
+//     FOREIGN KEY (responsible_user_id) REFERENCES TodoListUser(id)
+// );
+//     `);
+//     console.log("Tabela criada com sucesso")
+// }
+
+
+// INSERT
+const createUser = async (
+    id:string,
+    name: string, 
+    nickname: string,
+    email: string, 
+): Promise<void> =>{
+    await connection.insert({
+        id:id,
+        name:name,
+        nickname:nickname,
+        email:email
+    })
+    .into("TodoListUser")
+    console.log("Usuário criado com sucesso!")
 }
 
+async function main(): Promise<void> {
+    try {
+        await createUser("001","Astro Dev", "astrodev", "astro@dev.com")
+    }catch (err) {
+        console.log(err)
+    }
+    // console.log("Tabela criada com sucesso")
+}
 
 
 main();
@@ -51,6 +89,8 @@ main();
 
 
 // const app = express()
+
+//  CRIAR USUÁRIO
 
 // app.put("/user", async (req: Request, res:Response) => {
 //     res.send({
