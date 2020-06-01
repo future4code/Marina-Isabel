@@ -1,4 +1,4 @@
-function performPurchase(user: User, value: number): User | undefined {
+export function performPurchase(user: User, value: number): User | undefined {
 	if(user.saldo >= value) {
 		return {
 			...user,
@@ -9,7 +9,7 @@ function performPurchase(user: User, value: number): User | undefined {
 }
 
 
-interface User {
+export interface User {
     nome: string, 
     saldo: number 
 }
