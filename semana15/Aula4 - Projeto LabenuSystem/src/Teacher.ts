@@ -2,6 +2,10 @@ import { User } from "./User";
 
 
 enum TEACHER_SPECIALTY {
+import { MainTaskManager } from "./MainTaskManager";
+
+export enum TEACHER_SPECIALTY {
+
   REACT = "REACT",
   REDUX = "REDUX",
   CSS = "CSS",
@@ -23,6 +27,19 @@ export class Teacher implements User {
     this.name = name
     this.email = email
     this.specialties = []
+export class Teacher extends MainTaskManager implements User {
+  constructor(
+    public name: string,
+    public email: string,
+    public curso:string,
+    public birthDate: moment.Moment,
+    public classroom: string,
+    public specialties: TEACHER_SPECIALTY[], 
+    public hobbies: string[]
+    ) {
+
+    super(name, email, curso, birthDate, classroom, specialties, hobbies);
+
   }
 
 }

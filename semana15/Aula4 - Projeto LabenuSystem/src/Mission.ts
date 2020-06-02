@@ -41,12 +41,12 @@ export abstract class Mission {
     //   }
     
       public addTeacher(teacher: Teacher) {
-        // console.log(`O professor ${this.name} foi adicionado com sucesso!`)
+
         this.TeacherList.push(teacher);
       }
     
       public addStudent(student: Student) {
-        // console.log(`O aluno ${this.name} foi adicionado com sucesso!`)
+
         this.StudentsList.push(student);
       }
     
