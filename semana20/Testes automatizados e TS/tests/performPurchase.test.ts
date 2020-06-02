@@ -7,7 +7,7 @@ describe("Testando performPurchase", () => {
             saldo: 50
         }
 
-        const result = performPurchase(user, 50)
+        const result = performPurchase(user, 30)
         expect(result).toEqual({
             ...user, 
             saldo: 30
