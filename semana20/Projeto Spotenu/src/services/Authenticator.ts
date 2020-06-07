@@ -24,8 +24,7 @@ export class Authenticator {
         ) as any
         const result = {
             id: payload.id,
-            role: payload.role,
-            device: payload.device
+            role: payload.role
         }
         return result
     }
@@ -33,6 +32,5 @@ export class Authenticator {
 
 interface AuthenticationData {
     id: string
-    role?: string,
-    device?: string
+    role?: string
 }
