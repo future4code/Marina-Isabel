@@ -36,7 +36,7 @@ export class BandDatabase extends BaseDatabase {
       .into(BandDatabase.TABLE_NAME)
   }
 
-  public async getApprovedBands(id: string): Promise<any> {
+  public async getApprovedBands(): Promise<any> {
     const result = await this.connection().raw(`
       SELECT 
         b.id, 
@@ -45,7 +45,7 @@ export class BandDatabase extends BaseDatabase {
         b.email, 
         b.isApproved 
       FROM SpotBand b 
-      WHERE b.id = '${id}'`);
+      WHERE b.id`);
 
     const allBands = []
     for (const item of result[0]) {

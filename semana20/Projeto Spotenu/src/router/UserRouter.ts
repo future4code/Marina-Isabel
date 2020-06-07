@@ -13,3 +13,5 @@ userRouter.post("/signup-admin", userController.signupAdmin)
 userRouter.post("/login", userController.login);
 
 userRouter.post("/signup-band", bandController.signup)
+
+userRouter.get("/approve-band", bandController.getApprovedBand)

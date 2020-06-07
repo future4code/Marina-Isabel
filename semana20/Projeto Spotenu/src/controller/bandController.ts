@@ -37,8 +37,6 @@ export class BandController {
 
             const result = await bandBusiness.bandSignup(name, nickname, description, email, password, isApproved, role)
 
-            // if(bandData )
-
             res.status(200).send({
                 message: "Aguarde para ser aprovado"
             })
@@ -49,4 +47,24 @@ export class BandController {
             })
         }
     }
-}
+
+    async getApprovedBand(req: Request, res: Response) {
+        try {
+            const token: string = req.headers.authorization as string;
+            
+            const bandBusiness = new BandBusiness()
+            const band = await bandBusiness.getApprovedBands(token)
+
+            if(!band.getApproved()){
+                throw new Error ("Ainda não foi aprovado")
+            }
+            res.status(200).send({
+                band
+            })
+        } catch (err) {
+            res.status(400).send({
+                error: err.message
+            })
+        }
+    }
+}   
