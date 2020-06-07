@@ -7,8 +7,6 @@ export class BandController {
 
     async signup(req: Request, res: Response) {
         try {
-            const token = req.headers.authorization as string
-
             const bandBusiness = new BandBusiness()
             const {
                 name,
@@ -16,6 +14,8 @@ export class BandController {
                 email,
                 description,
                 password,
+                isApproved,
+                role
             } = req.body
 
             if (
@@ -35,10 +35,7 @@ export class BandController {
                 throw new Error("Email inválido")
             }
 
-            const result = await bandBusiness.bandSignup(name, nickname, description, email, password)
-
-            const authenticator = new Authenticator()
-            const bandData = authenticator.verify(token)
+            const result = await bandBusiness.bandSignup(name, nickname, description, email, password, isApproved, role)
 
             // if(bandData )
 

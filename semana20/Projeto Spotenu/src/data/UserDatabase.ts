@@ -3,7 +3,7 @@ import { User } from "../model/User";
 
 export class UserDatabase extends BaseDatabase {
   protected static TABLE_NAME = "SpotUser";
-  
+
   private toModel(dbModel?: any): User | undefined {
     return (
       dbModel &&
@@ -16,36 +16,29 @@ export class UserDatabase extends BaseDatabase {
         dbModel.role
       )
     );
-}  
+  }
 
-public async createUser(user: User): Promise<void> {
+  public async createUser(user: User): Promise<void> {
     const userData = this.toModel(user)
     await this.connection()
-        .insert({
-            id: userData?.getId(),
-            name: userData?.getName(),
-            nickname: userData?.getNickname(),
-            email: userData?.getEmail(),
-            password: userData?.getPassword(),
-            role: userData?.getRole()
-        })
-        .into(UserDatabase.TABLE_NAME)
-}
+      .insert({
+        id: userData?.getId(),
+        name: userData?.getName(),
+        nickname: userData?.getNickname(),
+        email: userData?.getEmail(),
+        password: userData?.getPassword(),
+        role: userData?.getRole()
+      })
+      .into(UserDatabase.TABLE_NAME)
+  }
 
-public async getUserByEmail(email: string): Promise<User | undefined> {
-  const result = await this.connection()
+  public async getUserByEmailOrNickname(email: string, nickname: string): Promise<User | undefined> {
+    const result = await this.connection()
       .select("*")
       .from(UserDatabase.TABLE_NAME)
       .where({ email })
-  return this.toModel(result[0])
-}
+      .orWhere({ nickname })
 
-public async getUserByNickname(nickname: string): Promise<User | undefined> {
-  const result = await this.connection()
-      .select("*")
-      .from(UserDatabase.TABLE_NAME)
-      .where({ nickname })
-  return this.toModel(result[0])
-}
-
+    return this.toModel(result[0])
+  }
 }

@@ -37,7 +37,7 @@ export class UserBusiness {
 
     public async login(nickname: string, email: string, password: string){
         const userDataBase = new UserDatabase()
-        const user = await userDataBase.getUserByEmail(email) 
+        const user = await userDataBase.getUserByEmailOrNickname(email, nickname)
        
         if(!user){
             throw new Error("Parâmetros incorretos !")

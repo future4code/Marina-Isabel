@@ -6,6 +6,8 @@ export class Band {
         private email: string,
         private description: string,
         private password: string,
+        private isApproved: boolean,
+        private role: string 
     ){}
 
     public getId(): string {
@@ -28,4 +30,11 @@ export class Band {
       public getPassword(): string {
         return this.password;
       }    
+
+      public getApproved(){
+        return this.isApproved; 
+    }
+    public getRole(){
+      return this.role; 
+  }
 }
