@@ -36,27 +36,20 @@ export class BandDatabase extends BaseDatabase {
       .into(BandDatabase.TABLE_NAME)
   }
 
-  public async getApprovedBands(): Promise<any> {
+  public async getApprovedBands(role: string): Promise<Band[]> {
     const result = await this.connection().raw(`
-      SELECT 
-        b.id, 
-        b.name, 
-        b.nickname, 
-        b.email, 
-        b.isApproved 
-      FROM SpotBand b 
-      WHERE b.id`);
+      SELECT *
+      FROM ${BandDatabase.TABLE_NAME}
+      WHERE role = "${role}"`);
+    return result[0]
+  }
 
-    const allBands = []
-    for (const item of result[0]) {
-      allBands.push({
-        id: item.id,
-        name: item.name,
-        nickname: item.nickname,
-        isApproved: item.isApproved
-      })
-    }
-    // console.log(allBands)
-    return this.toModel(allBands)
+  public async getApproves(id: string): Promise<void> {
+    const result = await this.connection().raw(`
+    UPDATE S${BandDatabase.TABLE_NAME}
+    SET isApproved = 1
+    Where id = "${id}"
+    `)
+    return result
   }
 }

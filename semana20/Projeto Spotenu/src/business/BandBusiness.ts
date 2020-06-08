@@ -21,17 +21,26 @@ export class BandBusiness {
         return { id: id }
     }
 
-    public async getApprovedBands(token: string): Promise<any> {
+    public async getApprovedBands(token: string){
 
         const authenticator = new Authenticator()
-        const userData = authenticator.verify(token)
+        const bandData = authenticator.verify(token)
 
-        if(userData.role !== "ADMIN" || "admin"){
-            throw new Error("Only admin can add other admin")
+        if(bandData.role !== "ADMIN" || "admin"){
+            throw new Error("Acesso negado!")
         }  
 
         const bandDatabase = new BandDatabase()
-        const band = await bandDatabase.getApprovedBands()
-        return band
+        const band = await bandDatabase.getApprovedBands(token)
+
+        return band.map(band => {
+            const isApproved = band.getApproved() === true ? true:  false 
+            return {
+                name: band.getName(),
+                email: band.getEmail(),
+                nickname: band.getNickname(),
+                isApproved: isApproved
+            }
+        })
     }
 }
