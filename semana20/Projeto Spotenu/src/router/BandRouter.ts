@@ -7,5 +7,6 @@ const bandController = new BandController();
 
 
 bandRouter.post("/signup-band", bandController.signup)
+bandRouter.post("/approve", bandController.approvesBand)
 
 bandRouter.get("/approve-band", bandController.getApprovedBand)

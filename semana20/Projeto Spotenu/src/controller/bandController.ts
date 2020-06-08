@@ -46,11 +46,11 @@ export class BandController {
     }
 
     async getApprovedBand(req: Request, res: Response) {
-        const token =  req.headers.authorization as string;
-        try {    
+        const token = req.headers.authorization as string;
+        try {
             const bandBusiness = new BandBusiness()
             const band = await bandBusiness.getApprovedBands(token)
-            
+
             res.status(200).send({
                 band
             })
@@ -60,4 +60,21 @@ export class BandController {
             })
         }
     }
-}   
+    async approvesBand(req: Request, res: Response) {
+        const token = req.headers.authorization as string;
+        const { id } = req.body
+        try {
+            const bandBusiness = new BandBusiness()
+            const band = await bandBusiness.approvesBand(id, token)
+
+            if()
+            res.status(200).send({
+                band
+            })
+        } catch (err) {
+            res.status(400).send({
+                error: err.message
+            })
+        }
+    }
+} 

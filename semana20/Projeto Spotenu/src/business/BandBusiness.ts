@@ -43,4 +43,11 @@ export class BandBusiness {
             }
         })
     }
+    async approvesBand(id: string, token:string ) {
+        const authenticator = new Authenticator()
+        const bandData = authenticator.verify(token)
+
+        const bandDatabase = new BandDatabase()
+        const band = await bandDatabase.getApprovedBands(token)
+    }
 }
