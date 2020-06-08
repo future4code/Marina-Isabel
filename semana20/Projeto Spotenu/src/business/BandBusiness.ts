@@ -20,7 +20,6 @@ export class BandBusiness {
 
         return { id: id }
     }
-
     public async getApprovedBands(token: string){
 
         const authenticator = new Authenticator()

@@ -19,7 +19,6 @@ export class BandDatabase extends BaseDatabase {
       )
     );
   }
-
   public async createBand(band: Band): Promise<void> {
     const bandData = this.toModel(band)
     await this.connection()
@@ -35,7 +34,6 @@ export class BandDatabase extends BaseDatabase {
       })
       .into(BandDatabase.TABLE_NAME)
   }
-
   public async getApprovedBands(role: string): Promise<Band[]> {
     const result = await this.connection().raw(`
       SELECT *
@@ -43,7 +41,6 @@ export class BandDatabase extends BaseDatabase {
       WHERE role = "${role}"`);
     return result[0]
   }
-
   public async getApproves(id: string): Promise<void> {
     const result = await this.connection().raw(`
     UPDATE S${BandDatabase.TABLE_NAME}

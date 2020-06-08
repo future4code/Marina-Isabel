@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { BandBusiness } from '../business/BandBusiness'
-import { Authenticator } from '../services/Authenticator'
+
 
 
 export class BandController {
@@ -26,7 +26,6 @@ export class BandController {
             ) {
                 throw new Error("Parâmetros Inválidos")
             }
-
             if (password.length < 6) {
                 throw new Error("A senha deverá ter no mínimo 6 caracteres")
             }
@@ -44,7 +43,6 @@ export class BandController {
             })
         }
     }
-
     async getApprovedBand(req: Request, res: Response) {
         const token = req.headers.authorization as string;
         try {
@@ -67,7 +65,6 @@ export class BandController {
             const bandBusiness = new BandBusiness()
             const band = await bandBusiness.approvesBand(id, token)
 
-            if()
             res.status(200).send({
                 band
             })
