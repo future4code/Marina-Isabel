@@ -25,6 +25,11 @@ var Mission = /** @class */ (function () {
     //     return this.currentModule;
     //   }
     Mission.prototype.addTeacher = function (teacher) {
+
+        // console.log(`O professor ${this.name} foi adicionado com sucesso!`)
+        this.TeacherList.push(teacher);
+    };
+    Mission.prototype.addStudent = function (student) {
         this.TeacherList.push(teacher);
     };
     Mission.prototype.addStudent = function (student) {

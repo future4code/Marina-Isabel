@@ -1,4 +1,16 @@
 "use strict";
+
+exports.__esModule = true;
+var moment = require("moment");
+var Student = /** @class */ (function () {
+    function Student(id, name, email, birthDate, hobbies) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.birthDate = birthDate;
+        this.hobbies = hobbies;
+    }
+
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -37,6 +49,6 @@ var Student = /** @class */ (function (_super) {
     Student.prototype.getAge = function () {
         return moment().diff(this.birthDate, "years");
     };
-    return Student;
-}(MainTaskManager_1.MainTaskManager));
+    return Student
+}());
 exports.Student = Student;

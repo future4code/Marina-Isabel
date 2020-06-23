@@ -41,10 +41,12 @@ export abstract class Mission {
     //   }
     
       public addTeacher(teacher: Teacher) {
+
         this.TeacherList.push(teacher);
       }
     
       public addStudent(student: Student) {
+
         this.StudentsList.push(student);
       }
     

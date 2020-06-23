@@ -1,8 +1,11 @@
 import { User } from "./User";
+
+
+enum TEACHER_SPECIALTY {
 import { MainTaskManager } from "./MainTaskManager";
 
-
 export enum TEACHER_SPECIALTY {
+
   REACT = "REACT",
   REDUX = "REDUX",
   CSS = "CSS",
@@ -12,8 +15,18 @@ export enum TEACHER_SPECIALTY {
   BACKEND = "BACKEND",
 }
 
+export class Teacher implements User {
+  id: string;
+  name: string;
+  email: string;
+  specialties: TEACHER_SPECIALTY[]
 
+  constructor(id: string, name: string, email: string, specialties:[]) {
 
+    this.id = id
+    this.name = name
+    this.email = email
+    this.specialties = []
 export class Teacher extends MainTaskManager implements User {
   constructor(
     public name: string,
@@ -26,7 +39,7 @@ export class Teacher extends MainTaskManager implements User {
     ) {
 
     super(name, email, curso, birthDate, classroom, specialties, hobbies);
-  
+
   }
 
 }
